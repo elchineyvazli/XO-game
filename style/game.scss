@@ -1,0 +1,220 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    text-decoration: none;
+    font-size: 15px;
+    box-sizing: border-box;
+}
+
+button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .menuContainer,
+    .gameContainer {
+        position: absolute;
+        bottom: 60px;
+        left: 0;
+    }
+
+    .normalContainer {
+        width: 500px;
+        height: 600px;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        border-radius: 10px;
+
+        .topPart {
+            width: 100%;
+            height: 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+
+            .buttonPart {
+                display: flex;
+                gap: 10px;
+
+                .circle {
+                    width: 20px;
+                    height: 20px;
+                    border-radius: 50%;
+
+                    &1 {
+                        background-color: red;
+                    }
+
+                    &2 {
+                        background-color: yellow;
+                    }
+
+                    &3 {
+                        background-color: green;
+                    }
+                }
+            }
+
+            .backButton {
+                width: 30px;
+                height: 30px;
+                border-radius: 50%;
+                border: solid 2px black;
+            }
+
+        }
+
+        .menuContainer {
+            width: 100%;
+            height: 480px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 20px;
+            z-index: 1;
+            background-color: green;
+
+            .choiseItem {
+                font-size: 25px;
+                cursor: pointer;
+                transition: .6s;
+                color: white;
+
+                &:hover {
+                    transform: scale(1.1);
+                }
+            }
+        }
+
+        .gameContainer {
+            width: 100%;
+            height: 480px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            z-index: 0;
+            opacity: 0;
+
+            .gameContainerInside {
+                width: 470px;
+                height: 480px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 10px;
+                position: relative;
+
+                .backToMenuContainer {
+                    width: 400px;
+                    height: 300px;
+                    display: none;
+                    align-items: center;
+                    justify-content: center;
+                    flex-direction: column;
+                    gap: 30px;
+                    background-color: rgb(205, 198, 198);
+                    position: absolute;
+                    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                    border-radius: 10px;
+
+                    .backToMenuText {
+                        font-size: 40px;
+                    }
+
+                    .backToMenuButtons {
+                        display: flex;
+                        gap: 20px;
+
+                        .backToMenuButton {
+                            width: 130px;
+                            height: 40px;
+                            border-radius: 20px;
+                            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+                        }
+                    }
+
+                }
+
+                .gameStartContainer {
+                    width: 470px;
+                    height: 480px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 50px;
+                    color: white;
+                    font-weight: 500;
+                    position: absolute;
+                    background-color: blue;
+                }
+
+                .resultLine {
+                    width: 30px;
+                    height: 30px;
+                    background-color: red;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    z-index: -1;
+                    display: none;
+                }
+
+                .gameItem {
+                    width: 150px;
+                    height: 150px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+                    font-size: 40px;
+                }
+
+                .resultWindow {
+                    width: 400px;
+                    height: 300px;
+                    display: none;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 20px;
+                    background-color: rgb(205, 198, 198);
+                    position: absolute;
+                    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                    border-radius: 10px;
+                    // background-color: red;
+
+                    .closeResultWindow {
+                        width: 150px;
+                        height: 45px;
+                        border-radius: 22px;
+                        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+                    }
+
+                    .resultInfo {
+                        font-size: 30px;
+                    }
+                }
+            }
+
+
+            // background-color: blue;
+        }
+    }
+}

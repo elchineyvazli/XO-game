@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="./style/game.css">
+        <script defer
+            src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js">
+        </script>
+        <script defer src="./game.js"></script>
+    </head>
+    <body>
+        <div class="normalContainer">
+            <div class="topPart">
+                <div class="buttonPart">
+                    <button class="circle circle1"></button>
+                    <button class="circle circle2"></button>
+                    <button class="circle circle3"></button>
+                </div>
+                <button class="backButton">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="1em"
+                        viewBox="0 0 320 512">
+                        <path
+                            d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z" /></svg>
+                </button>
+            </div>
+            <div class="menuContainer">
+                <button class="choiseItem">PLAY</button>
+                <button class="choiseItem">CREATOR</button>
+                <audio preload="auto" id="beep">
+                    <source src="./sound/beep.mp3">
+                </audio>
+            </div>
+            <div class="gameContainer">
+
+                <div class="gameContainerInside">
+                    <div class="backToMenuContainer">
+                        <h1 class="backToMenuText">ARE YOU SURE?</h1>
+                        <div class="backToMenuButtons">
+                            <button class="backToMenuButton yesButton">YES</button>
+                            <button class="backToMenuButton noButton">NO</button>
+                        </div>
+                    </div>
+                    <div class="gameStartContainer"></div>
+
+                    <div class="resultLine"></div>
+
+                    <button class="gameItem 0"></button>
+                    <button class="gameItem 1"></button>
+                    <button class="gameItem 2"></button>
+
+                    <button class="gameItem 3"></button>
+                    <button class="gameItem 4"></button>
+                    <button class="gameItem 5"></button>
+
+                    <button class="gameItem 6"></button>
+                    <button class="gameItem 7"></button>
+                    <button class="gameItem 8"></button>
+
+                    <audio preload="auto" id="gameStart">
+                        <source src="./sound/gameStart.mp3">
+                    </audio>
+
+                    <div class="resultWindow">
+                        <h1 class="resultInfo"></h1>
+                        <button class="closeResultWindow">CLOSE</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
