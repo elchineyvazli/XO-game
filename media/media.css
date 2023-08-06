@@ -1,0 +1,9 @@
+@media screen and (max-width: 471px) {
+  body .normalContainer .gameContainer .gameContainerInside {
+    gap: 20px;
+  }
+  body .normalContainer .gameContainer .gameContainerInside .gameItem {
+    width: 120px;
+    height: 120px;
+  }
+}/*# sourceMappingURL=media.css.map */

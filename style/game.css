@@ -98,6 +98,7 @@ body .normalContainer .gameContainer {
   align-items: flex-end;
   z-index: 0;
   opacity: 0;
+  overflow: hidden;
 }
 body .normalContainer .gameContainer .gameContainerInside {
   width: 470px;

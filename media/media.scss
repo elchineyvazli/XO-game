@@ -1,0 +1,16 @@
+@media screen and (max-width:471px) {
+    body {
+        .normalContainer {
+            .gameContainer {
+                .gameContainerInside {
+                    gap: 20px;
+
+                    .gameItem {
+                        width: 120px;
+                        height: 120px;
+                    }
+                }
+            }
+        }
+    }
+}

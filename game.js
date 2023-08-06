@@ -15,6 +15,8 @@ let resultInfo = document.querySelector('.resultInfo')
 let backButton = document.querySelector('.backButton')
 let backToMenuContainer = document.querySelector('.backToMenuContainer')
 
+let resultCount
+
 backButton.style.display = "none"
 
 
@@ -82,12 +84,16 @@ let crossValue = ""
 // console.log("countNormal " + countNormal);
 // console.log("crossValue " + crossValue);
 
+// console.log(resultCount);
+
 let resultLine = document.querySelector('.resultLine')
+let itemsCount = 0
 
 document.addEventListener('click', (e) => {
     if (e.target.classList.value.slice(0, 8) === "gameItem" && e.target.innerHTML == "") {
         presentCase = !presentCase
         e.target.innerHTML = sign
+
 
         for (i = 0; i < gameItems.length; i++) {
             if (e.target.classList.value.slice(9, 10) == i) {
@@ -102,11 +108,20 @@ document.addEventListener('click', (e) => {
                 }
             }
         }
+        for (i = 0; i < gameItems.length; i++) {
+            console.log(gameItems[i]);
+            if (gameItems[i].innerHTML != "") {
+                itemsCount++
+            }
+        }
 
+        // console.log("arr " + arr);
+        // console.log("choiseClassValue " + choiseClassValue);
+        // console.log("choiseValue " + choiseValue);
 
         // console.log(arr);
 
-        let resultCount = 0
+        resultCount = 0
         let resultValue = ""
 
         for (i = 0; i < arr.length; i++) {
@@ -279,27 +294,76 @@ document.addEventListener('click', (e) => {
                     resultValue = arr[2][1]
                 }
 
+                if (
+                    (arr[0][0] != arr[0][1] && arr[0][1] != arr[0][2] && arr[0][0] != arr[0][2])
+                    &&
+                    (arr[1][0] != arr[1][1] && arr[1][1] != arr[1][2])
+                    &&
+                    (arr[2][0] != arr[2][1] && arr[2][1] != arr[2][2])
+                    &&
+                    (arr[0][0] != arr[1][0] && arr[1][0] != arr[2][0])
+                    &&
+                    (arr[0][1] != arr[1][1] && arr[1][1] != arr[2][1])
+                    &&
+                    (arr[0][2] != arr[1][2] && arr[1][2] != arr[2][2])
+                    && itemsCount == 45
+                ) {
+                    resultCount = 1
+                    console.log("ALINDI");
+                } else {
+                    console.log("===================");
+                    console.log("resultCount " + resultCount);
+                    console.log("itemsCount " + itemsCount);
+                    console.log("ALINMADI");
+
+                    console.log("arr[0][0] " + arr[0][0]);
+                    console.log("arr[0][1] " + arr[0][1]);
+                    console.log("arr[0][2] " + arr[0][2]);
+
+                    console.log("arr[1][0] " + arr[1][0]);
+                    console.log("arr[1][1] " + arr[1][1]);
+                    console.log("arr[1][2] " + arr[1][2]);
+
+                    console.log("arr[2][0] " + arr[2][0]);
+                    console.log("arr[2][1] " + arr[2][1]);
+                    console.log("arr[2][2] " + arr[2][2]);
+
+                    console.log(arr[0][0] != arr[0][1] && arr[0][1] != arr[0][2]);
+                    console.log(arr[1][0] != arr[1][1] && arr[1][1] != arr[1][2]);
+                    console.log(arr[2][0] != arr[2][1] && arr[2][1] != arr[2][2]);
+                    console.log(arr[0][0] != arr[1][0] && arr[1][0] != arr[2][0]);
+                    console.log(arr[0][1] != arr[1][1] && arr[1][1] != arr[2][1]);
+                    console.log(arr[0][2] != arr[1][2] && arr[1][2] != arr[2][2]);
+                }
+                // console.log("resultCount : " + resultCount);
                 //! -----------------------
                 // console.log(countCross);
             }
         }
-        if (resultCount == 9) {
+        if (resultCount == 9 && resultCount == 18) {
             for (i = 0; i < gameItems.length; i++) {
                 gameItems[i].disabled = true
             }
+
+            if (resultValue == "X") {
+                setTimeout(() => {
+                    resultWindow.style.display = "flex"
+                    resultInfo.innerHTML = "QAZANDINIZ!"
+                    resultInfo.style.color = "green"
+                }, 200)
+            } else if (resultValue == "O") {
+                setTimeout(() => {
+                    resultWindow.style.display = "flex"
+                    resultInfo.innerHTML = "UDUZDUNUZ!"
+                    resultInfo.style.color = "red"
+                }, 200)
+            }
         }
-        if (resultValue == "X") {
-            setTimeout(() => {
-                resultWindow.style.display = "flex"
-                resultInfo.innerHTML = "QAZANDINIZ!"
-                resultInfo.style.color = "green"
-            }, 200)
-        } else if (resultValue == "O") {
-            setTimeout(() => {
-                resultWindow.style.display = "flex"
-                resultInfo.innerHTML = "UDUZDUNUZ!"
-                resultInfo.style.color = "red"
-            }, 200)
+
+        if (resultCount == 1) {
+            resultWindow.style.display = "flex"
+            resultInfo.innerHTML = "HEÇ HEÇƏ!"
+            resultInfo.style.color = "yellow"
         }
     }
     presentCase ? sign = "X" : sign = "O"
@@ -350,11 +414,21 @@ closeResultWindow.addEventListener('click', function () {
     resultLine.style.top = "0"
     resultLine.style.left = "0"
     resultLine.style.right = "0"
+    resultLine.style.transform = "rotate(0)"
+
+    // resultLine.style.width = "642px"
+    // resultLine.style.top = "220px"
+    // resultLine.style.left = "-85px"
+    // resultLine.style.right = "auto"
+    // resultLine.style.display = 'block'
+
     resultWindow.style.display = "none"
     resultValue = ""
+    resultCount = 0
     countCross = 0
     crossValue = ""
-    sign = "X"
+    sign = "O"
+    presentCase = false
     arr = [[0, 1, 2], [3, 4, 5], [6, 7, 8]]
 
     // console.log("sign " + sign);
@@ -366,4 +440,5 @@ closeResultWindow.addEventListener('click', function () {
     // console.log("countCross " + countCross);
     // console.log("countNormal " + countNormal);
     // console.log("crossValue " + crossValue);
+    // console.log("resultCount : " + resultCount);
 })
